@@ -4,7 +4,7 @@
 This script, if run over 24 hours before Southwest check-in, will check you in to your flight exactly 24 hours before the scheduled departure time, thus increasing the likelihood of a good seat.
 
 ### Installation
-This script has a few dependcies that must be installed before use.
+This script has a few dependencies that must be installed before use.
 
 ##### Chromedriver
 The easiest way to install this is with Homebrew. In a command line window, run `brew install chromedriver` and it will be automatically installed.
