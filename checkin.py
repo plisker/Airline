@@ -43,7 +43,7 @@ def checkin():
     return
 
 print 'Now:', now
-print 'Checkin Time:', checkin_time
+print 'Check-In Time:', checkin_time
 
 if (secs < 0) or (now > checkin_time):
     checkin()
