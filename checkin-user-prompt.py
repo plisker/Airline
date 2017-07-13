@@ -16,12 +16,13 @@ departure_month = int(departure_month)
 print "What is the year of your departure?"
 departure_year = raw_input()   # 4 digits
 departure_year = int(departure_year)
-print "What is the hour of your departure? Please use 24-hour format."
+print "What is the hour of your departure? (Not full time, just the hour.) Please use 24-hour format."
 departure_hour = raw_input()      # 24 hour format
 departure_hour = int(departure_hour)
 print "What is the minute of your departure?"
 departure_minute = raw_input()
 departure_minute = int(departure_minute)
+print "Thank you! Loading . . ."
 
 ################################################################################
 # Do not modify anything below this line
