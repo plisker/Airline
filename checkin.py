@@ -14,6 +14,7 @@ departure_minute = 50
 # Do not modify anything below this line
 
 import splinter as sp
+import time
 from datetime import datetime, timedelta
 from threading import Timer
 
@@ -29,17 +30,18 @@ secs=delta_t.seconds+1
 
 
 browser = sp.Browser('chrome')
-browser.visit('https://www.southwest.com/flight/retrieveCheckinDoc.html')
-conf_num_field = browser.fill('confirmationNumber', confirmationNumber)
-first_name_field = browser.fill('firstName', firstName)
-last_name_field = browser.fill('lastName', lastName)
+browser.visit('https://www.southwest.com/air/check-in/index.html')
+conf_num_field = browser.find_by_id('confirmationNumber').fill(confirmationNumber)
+first_name_field = browser.find_by_id('passengerFirstName').fill(firstName)
+last_name_field = browser.find_by_id('passengerLastName').fill(lastName)
 
 def checkin():
-    checkin_button = browser.find_by_name('submitButton')
+    checkin_button = browser.find_by_id('form-mixin--submit-button')
     checkin_button.click()
-    print 'Checked in at', datetime.now()
-    print_documents_button = browser.find_by_name('printDocuments')
+    time.sleep(3)
+    print_documents_button = browser.find_by_css('button')[7]
     print_documents_button.click()
+    print 'Checked in at', datetime.now()
     return
 
 print 'Now:', now
@@ -60,3 +62,4 @@ else:
 
     t = Timer(secs, checkin)
     t.start()
+
