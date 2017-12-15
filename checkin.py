@@ -18,15 +18,15 @@ import time
 from datetime import datetime, timedelta
 from threading import Timer
 
-now=datetime.now()
-departure=datetime(departure_year,
+now = datetime.now()
+departure = datetime(departure_year,
                 departure_month,
                 departure_day,
                 departure_hour,
                 departure_minute, 1)
-checkin_time = departure-timedelta(days=1)
-delta_t=checkin_time-now
-secs=delta_t.seconds+1
+checkin_time = departure - timedelta(days = 1)
+delta_t = checkin_time - now
+secs = delta_t.seconds + 1
 
 
 browser = sp.Browser('chrome')
@@ -50,13 +50,13 @@ print 'Check-In Time:', checkin_time
 if (secs < 0) or (now > checkin_time):
     checkin()
 else:
-    days, hours, minutes, seconds = delta_t.days, delta_t.seconds//3600, delta_t.seconds//60%60, delta_t.seconds%60
-    if (days>0):
+    days, hours, minutes, seconds = delta_t.days, delta_t.seconds // 3600, delta_t.seconds // 60 % 60, delta_t.seconds % 60
+    if (days > 0):
         print 'Waiting', days, 'days,', hours, 'hours,', minutes, 'minutes, and', seconds, 'seconds before checking in...'
     elif (hours > 0):
         print 'Waiting', hours, 'hours,', minutes, 'minutes, and', seconds, 'seconds before checking in...'
     elif (minutes > 0):
-        print 'Waiting', minutes, 'minutes, and', seconds, 'seconds before checking in...'
+        print 'Waiting', minutes, 'minutes and', seconds, 'seconds before checking in...'
     else:
         print 'Waiting', seconds, 'seconds before checking in...'
 
