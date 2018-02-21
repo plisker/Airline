@@ -1,7 +1,7 @@
-# Southwest Check-In Script
+# Airline Check-In Script
 ## Installation and Use Instructions
 
-This script, if run over 24 hours before Southwest check-in, will check you in to your flight exactly 24 hours before the scheduled departure time, thus increasing the likelihood of a good seat.
+This script, if run over 24 hours before my favorite airline's check-in, will check you in to your flight exactly 24 hours before the scheduled departure time, thus increasing the likelihood of a good seat.
 
 ### Installation
 This script has a few dependencies that must be installed before use.
