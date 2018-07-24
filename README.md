@@ -20,6 +20,8 @@ To use the check-in script, copy the Python file of your choice (checkin.py OR c
 If you chose the former, open the Python file (checkin.py) and modify any relevant information for your flight. Make sure to follow instructions and not modify anything outside of the box. Additionally, the single quotes should be straight quotes rather than curly quotes.
 
 ### Use
+This script is compatible with both Python 2.7 and 3.
+
 In a Terminal window, navigate to the folder in which the Python file is located (using `cd`). Then, run the file with `python checkin.py` or `python checking-user-prompt.py`. If the latter, enter your information when prompted! Make sure to leave both Terminal and your computer open, awake, and with an internet connection running until it checks in to your flight for you!
 
 *Safe travels!*
