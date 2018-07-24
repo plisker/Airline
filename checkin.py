@@ -1,4 +1,3 @@
-from __future__ import print_function
 ################################################################################
 # Enter personal info
 
@@ -14,6 +13,7 @@ departure_minute = 50
 ################################################################################
 # Do not modify anything below this line
 
+from __future__ import print_function
 import splinter as sp
 import time
 from datetime import datetime, timedelta

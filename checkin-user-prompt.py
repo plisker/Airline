@@ -1,8 +1,15 @@
-from __future__ import print_function
 ################################################################################
-# Enter personal info
+# Do not modify anything
+################################################################################
 
 from builtins import input
+from __future__ import print_function
+import splinter as sp
+import time
+from datetime import datetime, timedelta
+from threading import Timer
+
+# Collect personal info
 print("What is your confirmation number?")
 confirmationNumber = input()
 print("What is your first name?")
@@ -25,14 +32,6 @@ print("What is the minute of your departure?")
 departure_minute = input()
 departure_minute = int(departure_minute)
 print("Thank you! Loading . . .")
-
-################################################################################
-# Do not modify anything below this line
-
-import splinter as sp
-import time
-from datetime import datetime, timedelta
-from threading import Timer
 
 now=datetime.now()
 departure=datetime(departure_year,
