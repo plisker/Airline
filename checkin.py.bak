@@ -1,4 +1,3 @@
-from __future__ import print_function
 ################################################################################
 # Enter personal info
 
@@ -42,24 +41,24 @@ def checkin():
     time.sleep(3)
     print_documents_button = browser.find_by_css('button')[7]
     print_documents_button.click()
-    print('Checked in at', datetime.now())
+    print 'Checked in at', datetime.now()
     return
 
-print('Now:', now)
-print('Check-In Time:', checkin_time)
+print 'Now:', now
+print 'Check-In Time:', checkin_time
 
 if (secs < 0) or (now > checkin_time):
     checkin()
 else:
     days, hours, minutes, seconds = delta_t.days, delta_t.seconds // 3600, delta_t.seconds // 60 % 60, delta_t.seconds % 60
     if (days > 0):
-        print('Waiting', days, 'days,', hours, 'hours,', minutes, 'minutes, and', seconds, 'seconds before checking in...')
+        print 'Waiting', days, 'days,', hours, 'hours,', minutes, 'minutes, and', seconds, 'seconds before checking in...'
     elif (hours > 0):
-        print('Waiting', hours, 'hours,', minutes, 'minutes, and', seconds, 'seconds before checking in...')
+        print 'Waiting', hours, 'hours,', minutes, 'minutes, and', seconds, 'seconds before checking in...'
     elif (minutes > 0):
-        print('Waiting', minutes, 'minutes and', seconds, 'seconds before checking in...')
+        print 'Waiting', minutes, 'minutes and', seconds, 'seconds before checking in...'
     else:
-        print('Waiting', seconds, 'seconds before checking in...')
+        print 'Waiting', seconds, 'seconds before checking in...'
 
     t = Timer(secs, checkin)
     t.start()
