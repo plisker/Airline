@@ -30,6 +30,12 @@ def checkin(browser):
     return
 
 def main(confirmationNumber, firstName, lastName, departure_day, departure_month, departure_year, departure_hour, departure_minute):
+    browser = sp.Browser('chrome')
+    browser.visit('https://www.southwest.com/air/check-in/index.html')
+    conf_num_field = browser.find_by_id('confirmationNumber').fill(confirmationNumber)
+    first_name_field = browser.find_by_id('passengerFirstName').fill(firstName)
+    last_name_field = browser.find_by_id('passengerLastName').fill(lastName)
+
     now = datetime.now()
     departure = datetime(departure_year,
                     departure_month,
@@ -39,13 +45,6 @@ def main(confirmationNumber, firstName, lastName, departure_day, departure_month
     checkin_time = departure - timedelta(days = 1)
     delta_t = checkin_time - now
     secs = delta_t.seconds + 1
-
-    browser = sp.Browser('chrome')
-    browser.visit('https://www.southwest.com/air/check-in/index.html')
-    conf_num_field = browser.find_by_id('confirmationNumber').fill(confirmationNumber)
-    first_name_field = browser.find_by_id('passengerFirstName').fill(firstName)
-    last_name_field = browser.find_by_id('passengerLastName').fill(lastName)
-
 
     print('Now:', now)
     print('Check-In Time:', checkin_time)
