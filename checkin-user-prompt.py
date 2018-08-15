@@ -39,12 +39,12 @@ def main():
             break
     
     print("What is the year of your departure?")
-    departure_year = get_input()   # 4 digits
+    departure_year = get_input() # 4 digits
     departure_year = int(departure_year)
     
     while True:
         print("What is the hour of your departure? (Not full time, just the hour.) Please use 24-hour format.")
-        departure_hour = get_input()      # 24 hour format
+        departure_hour = get_input() # 24 hour format
         departure_hour = int(departure_hour)
         if departure_hour not in range(25):
             print("That is not a valid hour. Remember that midnight is simply 0.")
