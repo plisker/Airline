@@ -41,6 +41,8 @@ If you prepared a script in advance, follow these instructions:
 ### Debugging
 If the bash script does not work, it may have failed on some intermediate step, or it might not have permissions to run. If that is the case, run through the "Preparing the Script" instructions and the corresponding steps to run the prepared script.
 
-If the script fails to check you in to your flight, let me know so that I can update it!
+If the script fails to check you in to your flight, first make sure that you're using the most up-to-date script by first running `git pull`. If you are preparing a script in advance, try deleting the script from the `Ready-to-Run` folder and copying in a new one after git pulling.
+
+If the script is broken, let me know so that I can update it, or submit a pull request yourself!
 
 *Safe travels!*

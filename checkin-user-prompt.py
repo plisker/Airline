@@ -1,80 +1,71 @@
+import checkin
+import sys
+
 ################################################################################
 # Do not modify anything
 ################################################################################
 
-from builtins import input
-from __future__ import print_function
-import splinter as sp
-import time
-from datetime import datetime, timedelta
-from threading import Timer
+def main():
+    # Collect personal info
+    while True:
+        print("What is your confirmation number?")
+        confirmationNumber = get_input()
+        if len(confirmationNumber) != 6:
+            print("Confirmation number should be six characters long")
+        else:
+            break
+    print("What is your first name?")
+    firstName = get_input()
+    print("What is your last name?")
+    lastName = get_input()
+    while True:
+        print("What is the day of your departure?")
+        departure_day = get_input()
+        departure_day = int(departure_day)
+        if departure_day not in range(1,32):
+            print("That is not a valid day of the month")
+        else:
+            break
+    while True:
+        print("What is the month of your departure?")
+        departure_month = get_input()
+        departure_month = int(departure_month)
+        if departure_month not in range(1,13):
+            print("That is not a valid day of the month")
+        else:
+            break
+    print("What is the year of your departure?")
+    departure_year = get_input()   # 4 digits
+    departure_year = int(departure_year)
+    while True:
+        print("What is the hour of your departure? (Not full time, just the hour.) Please use 24-hour format.")
+        departure_hour = get_input()      # 24 hour format
+        departure_hour = int(departure_hour)
+        if departure_hour not in range(25):
+            print("That is not a valid hour. Remember that midnight is simply 0.")
+        else:
+            break
+    while True:
+        print("What is the minute of your departure?")
+        departure_minute = get_input()
+        departure_minute = int(departure_minute)
+        if departure_minute not in range(61):
+            print("That is not a valid minute")
+        else:
+            break
+    print("Thank you! Loading . . .")
 
-# Collect personal info
-print("What is your confirmation number?")
-confirmationNumber = input()
-print("What is your first name?")
-firstName = input()
-print("What is your last name?")
-lastName = input()
-print("What is the day of your departure?")
-departure_day = input()
-departure_day = int(departure_day)
-print("What is the month of your departure?")
-departure_month = input()
-departure_month = int(departure_month)
-print("What is the year of your departure?")
-departure_year = input()   # 4 digits
-departure_year = int(departure_year)
-print("What is the hour of your departure? (Not full time, just the hour.) Please use 24-hour format.")
-departure_hour = input()      # 24 hour format
-departure_hour = int(departure_hour)
-print("What is the minute of your departure?")
-departure_minute = input()
-departure_minute = int(departure_minute)
-print("Thank you! Loading . . .")
+    checkin.main(confirmationNumber, firstName, lastName, departure_day, departure_month, departure_year, departure_hour, departure_minute)
 
-now=datetime.now()
-departure=datetime(departure_year,
-                departure_month,
-                departure_day,
-                departure_hour,
-                departure_minute, 1)
-checkin_time = departure-timedelta(days=1)
-delta_t=checkin_time-now
-secs=delta_t.seconds+1
+if __name__ == "__main__":
+    # Support Python 2 and 3 input
+    # Default to Python 3's input()
+    get_input = input
 
+    # If this is Python 2, use raw_input()
+    if sys.version_info[:2] <= (2, 7):
+        get_input = raw_input
 
-browser = sp.Browser('chrome')
-browser.visit('https://www.southwest.com/air/check-in/index.html')
-conf_num_field = browser.find_by_id('confirmationNumber').fill(confirmationNumber)
-first_name_field = browser.find_by_id('passengerFirstName').fill(firstName)
-last_name_field = browser.find_by_id('passengerLastName').fill(lastName)
+    main()
 
-def checkin():
-    checkin_button = browser.find_by_id('form-mixin--submit-button')
-    checkin_button.click()
-    time.sleep(3)
-    print_documents_button = browser.find_by_css('button')[7]
-    print_documents_button.click()
-    print('Checked in at', datetime.now())
-    return
-
-print('Now:', now)
-print('Check-In Time:', checkin_time)
-
-if (secs < 0) or (now > checkin_time):
-    checkin()
-else:
-    days, hours, minutes, seconds = delta_t.days, delta_t.seconds//3600, delta_t.seconds//60%60, delta_t.seconds%60
-    if (days>0):
-        print('Waiting', days, 'days,', hours, 'hours,', minutes, 'minutes, and', seconds, 'seconds before checking in...')
-    elif (hours > 0):
-        print('Waiting', hours, 'hours,', minutes, 'minutes, and', seconds, 'seconds before checking in...')
-    elif (minutes > 0):
-        print('Waiting', minutes, 'minutes, and', seconds, 'seconds before checking in...')
-    else:
-        print('Waiting', seconds, 'seconds before checking in...')
-
-    t = Timer(secs, checkin)
-    t.start()
 
