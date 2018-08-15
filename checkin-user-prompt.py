@@ -6,7 +6,6 @@ import sys
 ################################################################################
 
 def main():
-    # Collect personal info
     while True:
         print("What is your confirmation number?")
         confirmationNumber = get_input()
@@ -14,10 +13,13 @@ def main():
             print("Confirmation number should be six characters long")
         else:
             break
+
     print("What is your first name?")
     firstName = get_input()
+
     print("What is your last name?")
     lastName = get_input()
+    
     while True:
         print("What is the day of your departure?")
         departure_day = get_input()
@@ -26,6 +28,7 @@ def main():
             print("That is not a valid day of the month")
         else:
             break
+    
     while True:
         print("What is the month of your departure?")
         departure_month = get_input()
@@ -34,9 +37,11 @@ def main():
             print("That is not a valid day of the month")
         else:
             break
+    
     print("What is the year of your departure?")
     departure_year = get_input()   # 4 digits
     departure_year = int(departure_year)
+    
     while True:
         print("What is the hour of your departure? (Not full time, just the hour.) Please use 24-hour format.")
         departure_hour = get_input()      # 24 hour format
@@ -45,6 +50,7 @@ def main():
             print("That is not a valid hour. Remember that midnight is simply 0.")
         else:
             break
+    
     while True:
         print("What is the minute of your departure?")
         departure_minute = get_input()
