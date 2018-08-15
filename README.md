@@ -1,27 +1,46 @@
 # Airline Check-In Script
 ## Installation and Use Instructions
 
-This script, if run over 24 hours before my favorite airline's check-in, will check you in to your flight exactly 24 hours before the scheduled departure time, thus increasing the likelihood of a good seat.
+This script, if run over 24 hours before my favorite airline's check-in, will automatically check you in to your flight exactly 24 hours before the scheduled departure time, thus increasing the likelihood of a good seat. This script is compatible with both Python 2.7 and 3.
 
-### Installation
+## Installation
 This script has a few dependencies that must be installed before use.
 
-##### Chromedriver
+### Chromedriver
 The easiest way to install this is with Homebrew. In a command line window, run `brew install chromedriver` and it will be automatically installed.
 
 If you do not have Homebrew installed, follow the instructions on [its website](https://brew.sh/ "Homebrew").
 
-##### Splinter
+### Splinter
 To install the splinter library to Python, use pip by running `sudo pip install splinter`. You may have to enter your password.
 
-### Preparation
-To use the check-in script, copy the Python file of your choice (checkin.py OR checkin-user-prompt.py) to the "Ready-to-Run" folder, since python files in that folder are ignored by git. Choose checkin.py if you feel comfortable opening the file and modifying fields. Otherwise, you can choose checkin-user-prompt.py, since that one will prompt you to enter the needed fields.
+## Use
+### Preparing the Script
+The easiest way to prepare in advance to use the script is to add your ticket info directly to the file. If you feel comfortable with this, keep reading. Alternatively, skip to the "Running the Script" section.
 
-If you chose the former, open the Python file (checkin.py) and modify any relevant information for your flight. Make sure to follow instructions and not modify anything outside of the box. Additionally, the single quotes should be straight quotes rather than curly quotes.
+1. Make sure that you have the latest code by running `git pull`
+2. To ensure that the file you'll prepare is not overwritten, first copy the `checkin.py` file to the `Ready-to-Run` folder. Python files in that folder are ignored by git.
+3. Open the Python file (`checkin.py`) with your favorite text editor (I'd suggest [Sublime](https://www.sublimetext.com/ "Sublime Text")) and modify any relevant information for your flight. Make sure to follow instructions and not modify anything outside of the box. Additionally, the single quotes should be straight quotes rather than curly quotes.
 
-### Use
-This script is compatible with both Python 2.7 and 3.
+### Running the Script
+If you skipped the section above, follow these steps:
 
-In a Terminal window, navigate to the folder in which the Python file is located (using `cd`). Then, run the file with `python checkin.py` or `python checking-user-prompt.py`. If the latter, enter your information when prompted! Make sure to leave both Terminal and your computer open, awake, and with an internet connection running until it checks in to your flight for you!
+1. In a Terminal window, navigate to the folder in which the Python file is located (using `cd`)
+2. Then, run the bash script with `./schedule_checkin.sh`. This script will automatically update your local repo with the latest code and start the Python script
+3. Follow the prompts
+4. Leave Terminal open and your computer open, awake, and with an Internet connection until it checks in to your flight for you
+5. Enjoy your great seat!
+
+If you prepared a script in advance, follow these instructions:
+
+1. In a Terminal window, navigate to the folder in which the Python file your prepared is located (using `cd`)
+2. Run the file with `python checkin.py`
+3. Leave Terminal open and your computer open, awake, and with an Internet connection until it checks in to your flight for you
+4. Enjoy your great seat!
+
+### Debugging
+If the bash script does not work, it may have failed on some intermediate step, or it might not have permissions to run. If that is the case, run through the "Preparing the Script" instructions and the corresponding steps to run the prepared script.
+
+If the script fails to check you in to your flight, let me know so that I can update it!
 
 *Safe travels!*
