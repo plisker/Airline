@@ -16,13 +16,13 @@ To install the splinter library to Python, use pip by running `sudo pip install 
 
 ## Use
 ### <a name="prepare"></a>Preparing the Script
-The easiest way to prepare in advance to use the script is to add your ticket info directly to the file. If you feel comfortable with this, keep reading. Alternatively, skip to the [Running the Script](#use) section.
+The easiest way to prepare in advance to use the script is to add your ticket info directly to the file. If you feel comfortable with this, keep reading. Alternatively, skip to the [Running the Script](#run) section.
 
 1. Make sure that you have the latest code by running `git pull`
 2. To ensure that the file you'll prepare is not overwritten, first copy the `checkin.py` file to the `Ready-to-Run` folder. Python files in that folder are ignored by git.
 3. Open the Python file (`checkin.py`) with your favorite text editor (I'd suggest [Sublime](https://www.sublimetext.com/ "Sublime Text")) and modify any relevant information for your flight. Make sure to follow instructions and not modify anything outside of the box. Additionally, the single quotes should be straight quotes rather than curly quotes.
 
-### <a name="use"></a>Running the Script
+### <a name="run"></a>Running the Script
 #### If you skipped the section above, follow these steps:
 
 1. In a Terminal window, navigate to the folder in which the Python file is located (using `cd`)
