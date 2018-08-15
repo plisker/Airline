@@ -36,13 +36,13 @@ def main(confirmationNumber, firstName, lastName, departure_day, departure_month
     first_name_field = browser.find_by_id('passengerFirstName').fill(firstName)
     last_name_field = browser.find_by_id('passengerLastName').fill(lastName)
 
-    now = datetime.now()
     departure = datetime(departure_year,
                     departure_month,
                     departure_day,
                     departure_hour,
                     departure_minute, 1)
     checkin_time = departure - timedelta(days = 1)
+    now = datetime.now()
     delta_t = checkin_time - now
     secs = delta_t.seconds + 1
 
