@@ -1,7 +1,7 @@
 # Airline Check-In Script
 ## Installation and Use Instructions
 
-This script, if run over 24 hours before my favorite airline's check-in, will automatically check you in to your flight exactly 24 hours before the scheduled departure time, thus increasing the likelihood of a good seat. This script is compatible with both Python 2.7 and 3.
+This script, if run over 24 hours before my [favorite airline's](https://www.southwest.com/) check-in, will automatically check you in to your flight as soon as checkin is allowed, thus increasing the likelihood of a good seat. This script is compatible with both Python 2.7 and 3.
 
 ## Installation
 This script has a few dependencies that must be installed before use.
@@ -23,7 +23,7 @@ The easiest way to prepare in advance to use the script is to add your ticket in
 3. Open the Python file (`checkin.py`) with your favorite text editor (I'd suggest [Sublime](https://www.sublimetext.com/ "Sublime Text")) and modify any relevant information for your flight. Make sure to follow instructions and not modify anything outside of the box. Additionally, the single quotes should be straight quotes rather than curly quotes.
 
 ### Running the Script
-If you skipped the section above, follow these steps:
+#### If you skipped the section above, follow these steps:
 
 1. In a Terminal window, navigate to the folder in which the Python file is located (using `cd`)
 2. Then, run the bash script with `./schedule_checkin.sh`. This script will automatically update your local repo with the latest code and start the Python script
@@ -31,7 +31,7 @@ If you skipped the section above, follow these steps:
 4. Leave Terminal open and your computer open, awake, and with an Internet connection until it checks in to your flight for you
 5. Enjoy your great seat!
 
-If you prepared a script in advance, follow these instructions:
+#### If you prepared a script in advance, follow these steps:
 
 1. In a Terminal window, navigate to the folder in which the Python file your prepared is located (using `cd`)
 2. Run the file with `python checkin.py`
