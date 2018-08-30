@@ -61,7 +61,7 @@ def main():
             break
     print("Thank you! Loading . . .")
 
-    checkin.main(confirmationNumber, firstName, lastName, departure_day, departure_month, departure_year, departure_hour, departure_minute)
+    return checkin.main(confirmationNumber, firstName, lastName, departure_day, departure_month, departure_year, departure_hour, departure_minute)
 
 if __name__ == "__main__":
     # Support Python 2 and 3 input
@@ -72,6 +72,10 @@ if __name__ == "__main__":
     if sys.version_info[:2] <= (2, 7):
         get_input = raw_input
 
-    main()
+    browser = main()
+
+    print("When you're finished, click enter to close the browser session.")
+    get_input()
+    browser.quit()
 
 

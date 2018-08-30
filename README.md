@@ -7,12 +7,12 @@ This script, if run over 24 hours before my [favorite airline's](https://www.sou
 This script has a few dependencies that must be installed before use.
 
 ### Chromedriver
-The easiest way to install this is with Homebrew. In a command line window, run `brew install chromedriver` and it will be automatically installed.
+The easiest way to install this is with Homebrew. In a command line window, run `brew cask install chromedriver` and it will be automatically installed.
 
 If you do not have Homebrew installed, follow the instructions on [its website](https://brew.sh/ "Homebrew").
 
 ### Splinter
-To install the splinter library to Python, use pip by running `sudo pip install splinter`. You may have to enter your password.
+To install the splinter library to Python, use pip by running `pip install splinter`. You may have to prepend `sudo` and enter your password.
 
 ## Use
 ### <a name="prepare"></a>Preparing the Script

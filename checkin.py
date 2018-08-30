@@ -21,6 +21,7 @@ departure_minute = 50
 # Do not modify anything below this line
 
 def checkin(browser):
+	time.sleep(3) # To make sure that their server allows for checking in.
     checkin_button = browser.find_by_id('form-mixin--submit-button')
     checkin_button.click()
     time.sleep(3)
@@ -65,5 +66,21 @@ def main(confirmationNumber, firstName, lastName, departure_day, departure_month
         t = Timer(secs, checkin, [browser])
         t.start()
 
+    return browser
+    
+
 if __name__ == "__main__":
-    main(confirmationNumber, firstName, lastName, departure_day, departure_month, departure_year, departure_hour, departure_minute)
+    # Support Python 2 and 3 input
+    # Default to Python 3's input()
+    get_input = input
+
+    # If this is Python 2, use raw_input()
+    if sys.version_info[:2] <= (2, 7):
+        get_input = raw_input
+    
+    browser = main(confirmationNumber, firstName, lastName, departure_day, departure_month, departure_year, departure_hour, departure_minute)
+
+    print("When you're finished, click enter to close the browser session.")
+    get_input()
+    browser.quit()
+

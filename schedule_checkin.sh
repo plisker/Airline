@@ -5,4 +5,4 @@ git pull
 clear
 
 # Run script
-python checkin-user-prompt.py
+python3 checkin-user-prompt.py
