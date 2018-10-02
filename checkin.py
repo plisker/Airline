@@ -1,4 +1,5 @@
 from __future__ import print_function
+import sys
 import splinter as sp
 import time
 from datetime import datetime, timedelta
@@ -21,7 +22,7 @@ departure_minute = 50
 # Do not modify anything below this line
 
 def checkin(browser):
-	time.sleep(3) # To make sure that their server allows for checking in.
+    time.sleep(3) # To make sure that their server allows for checking in.
     checkin_button = browser.find_by_id('form-mixin--submit-button')
     checkin_button.click()
     time.sleep(3)
