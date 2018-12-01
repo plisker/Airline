@@ -29,7 +29,14 @@ def checkin(browser):
     print_documents_button = browser.find_by_css('button')[7]
     print_documents_button.click()
     print('Checked in at', datetime.now())
+    print("")
+    quit(browser)
     return
+
+def quit(browser):
+    print("When you're finished, click enter to close the browser session.")
+    get_input()
+    browser.quit()
 
 def main(confirmationNumber, firstName, lastName, departure_day, departure_month, departure_year, departure_hour, departure_minute):
     browser = sp.Browser('chrome')

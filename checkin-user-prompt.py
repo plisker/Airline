@@ -74,8 +74,4 @@ if __name__ == "__main__":
 
     browser = main()
 
-    print("When you're finished, click enter to close the browser session.")
-    get_input()
-    browser.quit()
-
 
