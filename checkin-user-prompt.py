@@ -1,4 +1,5 @@
 import checkin
+import sys
 
 ################################################################################
 # Do not modify anything
