@@ -14,8 +14,11 @@ If you do not have Homebrew installed, follow the instructions on [its website](
 ### Splinter
 To install the splinter library to Python, use pip by running `pip install splinter`. You may have to prepend `sudo` and enter your password.
 
+### Other
+You may be missing other packages not listed above, which would cause the script to fail the first time you run it. Make sure to install any other missing libraries with `pip`.
+
 ## Use
-### <a name="prepare"></a>Preparing the Script
+### <a name="prepare"></a>Preparing the Script [optional]
 The easiest way to prepare in advance to use the script is to add your ticket info directly to the file. If you feel comfortable with this, keep reading. Alternatively, skip to the [Running the Script](#run) section.
 
 1. Make sure that you have the latest code by running `git pull`
@@ -42,6 +45,8 @@ The easiest way to prepare in advance to use the script is to add your ticket in
 If the bash script does not work, it may have failed on some intermediate step, or it might not have permissions to run. If that is the case, run through the [Preparing the Script](#prepare) instructions and the corresponding steps to run the prepared script.
 
 If the script fails to check you in to your flight, first make sure that you're using the most up-to-date script by first running `git pull`. If you are preparing a script in advance, try deleting the script from the `Ready-to-Run` folder and copying in a new one after git pulling.
+
+Though unlikely, a bug may exist in some of the libraries used by the script. To update chromedriver, run `brew update && brew cask upgrade chromedriver`; upate splinter with `pip install splinter --upgrade`.
 
 If the script is broken, let me know so that I can update it, or submit a pull request yourself!
 
