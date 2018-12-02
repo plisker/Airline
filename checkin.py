@@ -33,6 +33,15 @@ def checkin(browser):
     quit(browser)
     return
 
+def get_input():
+    get_user_input = input
+
+    # If this is Python 2, use raw_input()
+    if sys.version_info[:2] <= (2, 7):
+        get_user_input = raw_input
+
+    return get_user_input()
+
 def quit(browser):
     print("When you're finished, click enter to close the browser session.")
     get_input()
