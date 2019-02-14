@@ -68,7 +68,7 @@ def main(confirmationNumber, firstName, lastName, departure_day,
     checkin_time = departure - timedelta(days=1)
     now = datetime.now()
     delta_t = checkin_time - now
-    secs = delta_t.seconds + 1
+    secs = delta_t.seconds + 10 # Grace period of 10 seconds to ensure check-in works
 
     print('Now:', now)
     print('Check-In Time:', checkin_time)
