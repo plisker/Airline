@@ -1,17 +1,17 @@
 from __future__ import print_function
 import sys
-import splinter as sp
-import time
-from datetime import datetime, timedelta
 from threading import Timer
+from datetime import datetime, timedelta
+import time
+import splinter as sp
 
 # Do not modify anything above this line
 ###############################################################################
 # Enter personal info here!
 
-confirmationNumber = 'ABC123'
-firstName = 'PAUL'
-lastName = 'LISKER'
+confirmation_number = 'ABC123'
+first_name = 'PAUL'
+last_name = 'LISKER'
 departure_day = 16
 departure_month = 9
 departure_year = 2016   # 4 digits
@@ -51,14 +51,18 @@ def quit(browser):
     browser.quit()
 
 
-def main(confirmationNumber, firstName, lastName, departure_day,
+def now(confirmation_number, first_name, last_name):
+    # Hard coded date of January 1, 2000 at midnight to ensure past date
+    return main(confirmation_number, first_name, last_name, 1, 1, 2000, 0, 0)
+
+
+def main(confirmation_number, first_name, last_name, departure_day,
          departure_month, departure_year, departure_hour, departure_minute):
     browser = sp.Browser('chrome')
     browser.visit('https://www.southwest.com/air/check-in/index.html')
-    conf_num_field = browser.find_by_id('confirmationNumber').fill(
-        confirmationNumber)
-    first_name_field = browser.find_by_id('passengerFirstName').fill(firstName)
-    last_name_field = browser.find_by_id('passengerLastName').fill(lastName)
+    browser.find_by_id('confirmationNumber').fill(confirmation_number)
+    browser.find_by_id('passengerFirstName').fill(first_name)
+    browser.find_by_id('passengerLastName').fill(last_name)
 
     departure = datetime(departure_year,
                          departure_month,
@@ -68,7 +72,7 @@ def main(confirmationNumber, firstName, lastName, departure_day,
     checkin_time = departure - timedelta(days=1)
     now = datetime.now()
     delta_t = checkin_time - now
-    secs = delta_t.seconds + 10 # Grace period of 10 seconds to ensure check-in works
+    secs = delta_t.seconds + 10  # Grace period of 10 sec to ensure check-in
 
     print('Now:', now)
     print('Check-In Time:', checkin_time)
@@ -77,20 +81,20 @@ def main(confirmationNumber, firstName, lastName, departure_day,
         checkin(browser)
     else:
         days, hours, minutes, seconds = delta_t.days, delta_t.seconds // 3600, delta_t.seconds // 60 % 60, delta_t.seconds % 60
-        if (days > 0):
+        if days > 0:
             print('Waiting', days, 'days,', hours, 'hours,', minutes,
                   'minutes, and', seconds, 'seconds before checking in...')
-        elif (hours > 0):
+        elif hours > 0:
             print('Waiting', hours, 'hours,', minutes, 'minutes, and',
                   seconds, 'seconds before checking in...')
-        elif (minutes > 0):
+        elif minutes > 0:
             print('Waiting', minutes, 'minutes and',
                   seconds, 'seconds before checking in...')
         else:
             print('Waiting', seconds, 'seconds before checking in...')
 
-        t = Timer(secs, checkin, [browser])
-        t.start()
+        timer = Timer(secs, checkin, [browser])
+        timer.start()
 
     return browser
 
@@ -104,7 +108,7 @@ if __name__ == "__main__":
     if sys.version_info[:2] <= (2, 7):
         get_input = raw_input
 
-    browser = main(confirmationNumber, firstName, lastName, departure_day,
+    browser = main(confirmation_number, first_name, last_name, departure_day,
                    departure_month, departure_year, departure_hour,
                    departure_minute)
 

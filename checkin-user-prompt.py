@@ -1,5 +1,5 @@
-import checkin
 import sys
+import checkin
 
 ###############################################################################
 # Do not modify anything
@@ -9,17 +9,29 @@ import sys
 def main():
     while True:
         print("What is your confirmation number?")
-        confirmationNumber = checkin.get_input()
-        if len(confirmationNumber) != 6:
+        confirmation_number = checkin.get_input()
+        if len(confirmation_number) != 6:
             print("Confirmation number should be six characters long")
         else:
             break
 
     print("What is your first name?")
-    firstName = checkin.get_input()
+    first_name = checkin.get_input()
 
     print("What is your last name?")
-    lastName = checkin.get_input()
+    last_name = checkin.get_input()
+
+    while True:
+        print("Do you want check in now, or schedule it?")
+        print("Enter 1 to check in now, or 2 to schedule.")
+        now_or_schedule = checkin.get_input()
+        now_or_schedule = int(now_or_schedule)
+        if now_or_schedule == 1:
+            return checkin.now(confirmation_number, first_name, last_name)
+        if now_or_schedule == 2:
+            break
+        else:
+            print("That is not a valid day of the month")
 
     while True:
         print("What is the day of your departure?")
@@ -64,7 +76,7 @@ def main():
             break
     print("Thank you! Loading . . .")
 
-    return checkin.main(confirmationNumber, firstName, lastName, departure_day,
+    return checkin.main(confirmation_number, first_name, last_name, departure_day,
                         departure_month, departure_year, departure_hour,
                         departure_minute)
 
