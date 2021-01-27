@@ -21,8 +21,25 @@ departure_minute = 50
 ###############################################################################
 # Do not modify anything below this line
 
+spin_cursor = False
+
+
+def spinning_cursor():
+    while True:
+        for cursor in '|/-\\':
+            yield cursor
+
+
+spinner = spinning_cursor()
+for _ in range(50):
+    sys.stdout.write(next(spinner))
+    sys.stdout.flush()
+    time.sleep(0.1)
+    sys.stdout.write('\b')
+
 
 def checkin(browser):
+    spin_cursor = False
     time.sleep(3)  # To make sure that their server allows for checking in.
     checkin_button = browser.find_by_id('form-mixin--submit-button')
     checkin_button.click()
@@ -111,6 +128,13 @@ if __name__ == "__main__":
     browser = main(confirmation_number, first_name, last_name, departure_day,
                    departure_month, departure_year, departure_hour,
                    departure_minute)
+
+    spinner = spinning_cursor()
+    while spin_cursor:
+        sys.stdout.write(next(spinner))
+        sys.stdout.flush()
+        time.sleep(0.1)
+        sys.stdout.write('\b')
 
     print("When you're finished, click enter to close the browser session.")
     get_input()

@@ -7,7 +7,7 @@ This script, if run over 24 hours before my [favorite airline's](https://www.sou
 This script has a few dependencies that must be installed before use.
 
 ### Chromedriver
-The easiest way to install this is with Homebrew. In a command line window, run `brew cask install chromedriver` and it will be automatically installed.
+The easiest way to install this is with Homebrew. In a command line window, run `brew install --cask chromedriver` and it will be automatically installed.
 
 If you do not have Homebrew installed, follow the instructions on [its website](https://brew.sh/ "Homebrew").
 
@@ -46,7 +46,7 @@ If the bash script does not work, it may have failed on some intermediate step, 
 
 If the script fails to check you in to your flight, first make sure that you're using the most up-to-date script by first running `git pull`. If you are preparing a script in advance, try deleting the script from the `Ready-to-Run` folder and copying in a new one after git pulling.
 
-Though unlikely, a bug may exist in some of the libraries used by the script. To update chromedriver, run `brew update && brew cask upgrade chromedriver`; upate splinter with `pip install splinter --upgrade`.
+Though unlikely, a bug may exist in some of the libraries used by the script. To update chromedriver, run `brew update && brew upgrade --cask chromedriver`; update splinter with `pip install splinter --upgrade`.
 
 If the script is broken, let me know so that I can update it, or submit a pull request yourself!
 
